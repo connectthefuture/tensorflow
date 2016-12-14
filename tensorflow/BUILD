@@ -208,7 +208,11 @@ cc_binary(
     deps = [
         "//tensorflow/c:c_api",
         "//tensorflow/core:tensorflow",
+        "//tensorflow:tf_version_script.lds",
     ],
+    linkopts = [
+          "-Wl,--version-script", "//tensorflow:tf_version_script.lds"
+    ]
 )
 
 cc_binary(
@@ -217,7 +221,11 @@ cc_binary(
     deps = [
         "//tensorflow/c:c_api",
         "//tensorflow/core:tensorflow",
+        "//tensorflow:tf_c_api_version_script.lds",
     ],
+    linkopts = [
+          "-Wl,--version-script", "//tensorflow:tf_c_api_version_script.lds"
+    ]
 )
 
 cc_binary(
@@ -227,5 +235,9 @@ cc_binary(
         "//tensorflow/c:c_api",
         "//tensorflow/cc:cc_ops",
         "//tensorflow/core:tensorflow",
+        "//tensorflow:tf_version_script.lds",
     ],
+    linkopts = [
+          "-Wl,--version-script", "//tensorflow:tf_version_script.lds"
+    ]
 )
